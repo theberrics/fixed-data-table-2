@@ -115,7 +115,7 @@ class ReactTouchHandler {
     clearInterval(this._trackerId);
     this._trackerId = setInterval(this._track, TRACKER_TIMEOUT);
 
-    event.preventDefault();
+    //event.preventDefault();
     if (this._stopPropagation()) {
       event.stopPropagation();
     }
@@ -130,7 +130,7 @@ class ReactTouchHandler {
     // Initialize decelerating autoscroll on drag stop
     requestAnimationFrame(this._startAutoScroll);
 
-    event.preventDefault();
+    //event.preventDefault();
     if (this._stopPropagation()) {
       event.stopPropagation();
     }

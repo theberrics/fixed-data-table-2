@@ -545,7 +545,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var touchEnabled = this.state.touchScrollEnabled === true;
 
 	    this._wheelHandler = new ReactWheelHandler(this._onScroll, this._shouldHandleWheelX, this._shouldHandleWheelY);
-	    this._touchHandler = new ReactTouchHandler(this._onScroll, touchEnabled && this._shouldHandleWheelX, touchEnabled && this._shouldHandleWheelY, false);
+	    this._touchHandler = new ReactTouchHandler(this._onScroll, touchEnabled && this._shouldHandleWheelX, touchEnabled && this._shouldHandleWheelY);
 	  },
 
 	  _shouldHandleWheelX: function _shouldHandleWheelX( /*number*/delta) /*boolean*/{
@@ -616,8 +616,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	      newOverflowY !== 'hidden' // Should handle vertical scroll
 	      );
 	      this._touchHandler = new ReactTouchHandler(this._onScroll, newOverflowX !== 'hidden' && touchEnabled, // Should handle horizontal scroll
-	      newOverflowY !== 'hidden' && touchEnabled, // Should handle vertical scroll
-	      false);
+	      newOverflowY !== 'hidden' && touchEnabled // Should handle vertical scroll
+	      );
 	    }
 
 	    // In the case of controlled scrolling, notify.
@@ -2332,7 +2332,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      clearInterval(this._trackerId);
 	      this._trackerId = setInterval(this._track, TRACKER_TIMEOUT);
 
-	      event.preventDefault();
+	      //event.preventDefault();
 	      if (this._stopPropagation()) {
 	        event.stopPropagation();
 	      }
@@ -2348,7 +2348,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      // Initialize decelerating autoscroll on drag stop
 	      requestAnimationFrame(this._startAutoScroll);
 
-	      event.preventDefault();
+	      //event.preventDefault();
 	      if (this._stopPropagation()) {
 	        event.stopPropagation();
 	      }

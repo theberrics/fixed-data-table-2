@@ -341,7 +341,7 @@ var FixedDataTable = React.createClass({
     var touchEnabled = this.state.touchScrollEnabled === true;
 
     this._wheelHandler = new ReactWheelHandler(this._onScroll, this._shouldHandleWheelX, this._shouldHandleWheelY);
-    this._touchHandler = new ReactTouchHandler(this._onScroll, touchEnabled && this._shouldHandleWheelX, touchEnabled && this._shouldHandleWheelY, false);
+    this._touchHandler = new ReactTouchHandler(this._onScroll, touchEnabled && this._shouldHandleWheelX, touchEnabled && this._shouldHandleWheelY);
   },
 
   _shouldHandleWheelX: function _shouldHandleWheelX( /*number*/delta) /*boolean*/{
@@ -412,8 +412,8 @@ var FixedDataTable = React.createClass({
       newOverflowY !== 'hidden' // Should handle vertical scroll
       );
       this._touchHandler = new ReactTouchHandler(this._onScroll, newOverflowX !== 'hidden' && touchEnabled, // Should handle horizontal scroll
-      newOverflowY !== 'hidden' && touchEnabled, // Should handle vertical scroll
-      false);
+      newOverflowY !== 'hidden' && touchEnabled // Should handle vertical scroll
+      );
     }
 
     // In the case of controlled scrolling, notify.
