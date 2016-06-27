@@ -351,7 +351,8 @@ var FixedDataTable = React.createClass({
     this._touchHandler = new ReactTouchHandler(
       this._onScroll,
       touchEnabled && this._shouldHandleWheelX,
-      touchEnabled && this._shouldHandleWheelY
+      touchEnabled && this._shouldHandleWheelY,
+      false
     );
   },
 
@@ -435,7 +436,8 @@ var FixedDataTable = React.createClass({
       this._touchHandler = new ReactTouchHandler(
         this._onScroll,
         newOverflowX !== 'hidden' && touchEnabled, // Should handle horizontal scroll
-        newOverflowY !== 'hidden' && touchEnabled // Should handle vertical scroll
+        newOverflowY !== 'hidden' && touchEnabled, // Should handle vertical scroll
+        false
       );
     }
 
